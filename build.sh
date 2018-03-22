@@ -1,4 +1,8 @@
 #!/bin/sh
+if [ "$1" = "--x86" ]; then
+  export CFLAGS=-m32
+  export LDFLAGS=-m32
+fi
 cd lua
 make macosx
 ls -lah src/liblua.so

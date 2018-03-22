@@ -1,4 +1,6 @@
 os: osx
 osx_image: xcode6.4
 language: c
-install: ./build.sh
+install:
+  - ./build.sh
+  - ./build.sh --x86

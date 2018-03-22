@@ -8,11 +8,12 @@
 PLAT= none
 
 CC= gcc
-CFLAGS= -O2 -Wall -fPIC $(MYCFLAGS)
+override CFLAGS += -O2 -Wall -fPIC $(MYCFLAGS)
+LDFLAGS?=
 AR= ar rcu
 RANLIB= ranlib
 RM= rm -f
-LIBS= -lm $(MYLIBS)
+override LIBS += -lm $(MYLIBS)
 
 MYCFLAGS=
 MYLDFLAGS=
@@ -53,13 +54,13 @@ $(LUA_A): $(CORE_O) $(LIB_O)
 	$(RANLIB) $@
 
 $(LUA_T): $(LUA_O) $(LUA_A)
-	$(CC) -o $@ $(MYLDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
+	$(CC) -o $@ $(LDFLAGS) $(MYLDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
 
 $(LUA_SO): $(CORE_O) $(LIB_O)
-	$(CC) -o $@ $(MYLDFLAGS) -shared $?
+	$(CC) -o $@ $(LDFLAGS) $(MYLDFLAGS) -shared $?
 
 $(LUAC_T): $(LUAC_O) $(LUA_A)
-	$(CC) -o $@ $(MYLDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
+	$(CC) -o $@ $(LDFLAGS) $(MYLDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
 
 clean:
 	$(RM) $(ALL_T) $(ALL_O)
@@ -71,6 +72,7 @@ echo:
 	@echo "PLAT = $(PLAT)"
 	@echo "CC = $(CC)"
 	@echo "CFLAGS = $(CFLAGS)"
+	@echo "LDFLAGS = $(LDFLAGS)"
 	@echo "AR = $(AR)"
 	@echo "RANLIB = $(RANLIB)"
 	@echo "RM = $(RM)"

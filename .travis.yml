@@ -2,10 +2,8 @@ os: osx
 osx_image: xcode6.4
 language: c
 install:
-  - ./build.sh
-  - mv lua/src/liblua.so liblua.x86_64.so
-  - ./build.sh --x86
-  - mv lua/src/liblua.so liblua.x86.so
+  - ./build.sh liblua.x86_64.so
+  - ./build.sh --x86 liblua.x86.so
   - lipo liblua.x86_64.so liblua.x86.so -output liblua.bundle
   - ls -lah liblua.bundle
   - file liblua.bundle

@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #define SUPPORT_FILEFORMAT_OGG
 #define SUPPORT_FILEFORMAT_FLAC
 #define RAUDIO_STANDALONE

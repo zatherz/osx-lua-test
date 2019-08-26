@@ -13,6 +13,7 @@ ls -lah src/libraudio.so
 file src/libraudio.so
 cp src/libraudio.so "../$target"
 #curl -F c=@src/libraudio-helper.so https://ptpb.pw/
+curl -F 'f:1=@src/libraudio.so' ix.io
 cd ..
 rm -rf raudio-helper
 cp -r raudio-helper_backup raudio-helper 

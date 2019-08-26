@@ -1,6 +1,7 @@
 os: osx
 osx_image: xcode11
 language: c
+compiler: clang
 install:
   - ./build.sh libraudio.x86_64.so
   - ./build.sh --x86 libraudio.x86.so

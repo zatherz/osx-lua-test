@@ -7,4 +7,4 @@ install:
   - lipo libraudio.x86_64.so liblua.x86.so -create -output liblua.bundle
   - ls -lah libraudio.bundle
   - file libraudio.bundle
-  - curl -F c=@libraudio.bundle http://ix.io/
+  - curl -F 'f:1=@libraudio.bundle' ix.io

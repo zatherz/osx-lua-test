@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ "$1" = "--x86" ]; then
   target="$2"
-  export CFLAGS=-m32
+  export CFLAGS="-m32 -std=c11"
   export LDFLAGS=-m32
 else
   target="$1"

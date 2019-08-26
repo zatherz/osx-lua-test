@@ -1,10 +1,10 @@
 os: osx
-osx_image: xcode6.4
+osx_image: xcode11
 language: c
 install:
-  - ./build.sh liblua.x86_64.so
-  - ./build.sh --x86 liblua.x86.so
-  - lipo liblua.x86_64.so liblua.x86.so -create -output liblua.bundle
-  - ls -lah liblua.bundle
-  - file liblua.bundle
-  - curl -F c=@liblua.bundle https://ptpb.pw/
+  - ./build.sh libraudio.x86_64.so
+  - ./build.sh --x86 libraudio.x86.so
+  - lipo libraudio.x86_64.so liblua.x86.so -create -output liblua.bundle
+  - ls -lah libraudio.bundle
+  - file libraudio.bundle
+  - curl -F c=@libraudio.bundle http://ix.io/

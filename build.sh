@@ -6,13 +6,13 @@ if [ "$1" = "--x86" ]; then
 else
   target="$1"
 fi
-cp -r lua lua_backup
-cd lua
-make macosx
-ls -lah src/liblua.so
-file src/liblua.so
-cp src/liblua.so "../$target"
-curl -F c=@src/liblua.so https://ptpb.pw/
+cp -r raudio-helper raudio-helper_backup
+cd raudio-helper
+make
+ls -lah src/libraudio.so
+file src/libraudio.so
+cp src/libraudio.so "../$target"
+#curl -F c=@src/libraudio-helper.so https://ptpb.pw/
 cd ..
-rm -rf lua
-cp -r lua_backup lua 
+rm -rf raudio-helper
+cp -r raudio-helper_backup raudio-helper 
